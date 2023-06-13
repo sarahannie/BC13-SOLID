@@ -1,8 +1,9 @@
+// Enscapulation
 class Computer {
 
     // Fields
-    brand: string;
-    model: string;
+     brand: string;
+     private model: string;
 
     // Methods
     constructor(brand, model) {
@@ -55,8 +56,19 @@ class Computer {
     }
 
 }
-  
-const macBook = new Computer("Apple", "MacBook Pro");
+ 
+//  Inheritance of class
+class Desktop extends Computer{
+// Field
+// Method
+
+fold(){
+    console.log("------ Folding Process-------")
+    console.log(" step folding")
+    console.log()
+}
+}
+const macBook = new Desktop("Apple", "MacBook Pro");
 console.log(macBook.brand);
 macBook.input();
 macBook.process("1234567", "Storage");
