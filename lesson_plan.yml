@@ -1,0 +1,90 @@
+- OOP:
+  - What?:
+    - Its a Paradigm
+    - Objects, Attributes & Behaviors
+
+  - Where?:
+    - Software Programs / Systems / Applications
+
+  - When?:
+    - When analyzing Software (OOAD)
+    - When designing Software (OOAD)
+    - When writing software (OOP)
+    - When Modeling Real-World objects (OOD)
+    - When you want to bind Attributes and Behaviors of objects together
+    - When you want to achieve Messaging and Communication among objects
+
+  - Why?:
+    - Information Hiding
+    - Data Access Control (Scoping)
+      - Access Control Modifiers / Access Modifiers:
+        - Private
+        - Protected
+        - Public
+        - Package
+    - Code re-use
+
+  - How?:
+    - Encapsulation
+    - Inheritance
+    - Abstraction
+    - Polymorphism
+    - Composition
+
+- Relationships in OOP:
+  - Is-A Relationships:
+    - Inheritance
+
+  - Has A relationships:
+    - Composition:
+      - Is-Composed-Of
+    - Aggregation:
+      - Is-An-Aggregate-Of
+    - Dependency:
+      - Depends-On
+    - Association:
+      - Is-Associated-With
+
+- The Composition Principle:
+  - The perfect Alternative and/or Suppliment to Inheritance for connecting / coupling objects
+
+- GRASP:
+  ...
+  - Coupling
+  - Couhesion
+
+- The Principle of Coupling
+- The Principle of Cohesion
+- The Problems, The Ideals & The Solutions
+  - Problems:
+    - High Coupling
+    - Low Cohesion
+
+  - Ideals:
+    - Low Coupling
+    - High Cohesion
+
+  - Solutions:
+    - The SOLID Principles
+    - Design Patterns
+    - Code Refactoring
+
+The SOLID Principles:
+  - Principles:
+    - Single Responsbility Principle
+    - Open-Closed Principle
+    - Liskov's Substitution Principle
+    - Interface Substitution Principle
+    - Dependency Inversion Principle
+
+  - Ideals (Success Criteria):
+    - Single Responsbility
+    - Open-Closed
+    - Liskov's Substitution
+
+  - Action Points:
+    - Interface Segregation
+    - Dependency Inversion
+
+Design Patterns:
+  - 
