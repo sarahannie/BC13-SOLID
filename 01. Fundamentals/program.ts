@@ -68,7 +68,7 @@ fold(){
     console.log()
 }
 }
-const macBook = new Desktop("Apple", "MacBook Pro");
+const macBook = new Computer("Apple", "MacBook Pro");
 console.log(macBook.brand);
 macBook.input();
 macBook.process("1234567", "Storage");

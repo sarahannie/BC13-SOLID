@@ -73,7 +73,7 @@ var Desktop = /** @class */ (function (_super) {
     };
     return Desktop;
 }(Computer));
-var macBook = new Desktop("Apple", "MacBook Pro");
+var macBook = new Computer("Apple", "MacBook Pro");
 console.log(macBook.brand);
 macBook.input();
 macBook.process("1234567", "Storage");
