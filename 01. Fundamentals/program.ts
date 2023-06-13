@@ -1,8 +1,8 @@
 class Computer {
 
     // Fields
-    brand: string;
-    model: string;
+    private brand: string;
+    private model: string;
 
     // Methods
     constructor(brand, model) {
@@ -55,11 +55,26 @@ class Computer {
     }
 
 }
-  
-const macBook = new Computer("Apple", "MacBook Pro");
-console.log(macBook.brand);
+
+class Desktop extends Computer{
+    // Fields
+    // Methods
+}
+
+class Laptop extends Computer{
+    // Fields
+    // Methods
+    fold(){
+        console.log("-----------Folding Process ----------")
+        console.log("Step1: Folding")
+        console.log("")
+    }
+}
+
+
+const macBook = new Laptop("Apple", "MacBook Pro");
 macBook.input();
 macBook.process("1234567", "Storage");
 macBook.store();
 macBook.output();
-  
+macBook.fold();
