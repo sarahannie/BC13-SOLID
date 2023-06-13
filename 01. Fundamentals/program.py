@@ -1,6 +1,6 @@
 
 class Computer():
-    
+
     def __init__(self):
         # Fields
         self.brand = ""
