@@ -1,8 +1,15 @@
+class User{
+    // Fields
+    username: 'johndoe'
+    password: 'pswd'
+}
+
 abstract class Computer {
 
     // Fields
     private brand: string;
     private model: string;
+    public user = new User();
 
     // Methods
     constructor(brand, model) {
@@ -118,12 +125,15 @@ class Walltop extends Computer{
 let computer:Computer;
     // can be a Desktop Computer
     computer = new Desktop("HP", "XP-X2");
+    console.log(computer.user.username);    
     computer.process('s','s');
 
     // can be a Laptop Computer
     computer = new Laptop("HP", "XP-X2");
+    console.log(computer.user.username);    
     computer.process('s','s');
 
     // can be a walltop Computer
     computer = new Walltop("HP", "XP-X2");
+    console.log(computer.user.password);    
     computer.process('s','s');
