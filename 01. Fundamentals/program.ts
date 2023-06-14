@@ -1,7 +1,7 @@
 class User{
     // Fields
-    username: 'johndoe'
-    password: 'pswd'
+    username:string = 'johndoe'
+    password:string =  'pswd'
 }
 
 abstract class Computer {
