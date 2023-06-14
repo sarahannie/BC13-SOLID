@@ -26,15 +26,6 @@ var Computer = /** @class */ (function () {
         console.log("Step 5: Start listening to data from keyboard");
         console.log("");
     };
-    Computer.prototype.process = function (data, operation) {
-        console.log("---- Processing -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log("Step 5: Send back signal representing the state of the operation");
-        console.log("");
-    };
     Computer.prototype.store = function () {
         console.log("---- Storage Process -------------------");
         console.log("Step 1: Receive data to be stored");
@@ -60,6 +51,17 @@ var Desktop = /** @class */ (function (_super) {
     function Desktop() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    // Fields
+    // Methods
+    Desktop.prototype.process = function (data, operation) {
+        console.log("---- Processing in a Desktop Computer -------------------");
+        console.log("Step 1: Receive data to be proceesed");
+        console.log("Step 2: Receive operation to carry out on the data received");
+        console.log("Step 3: Prepare for operation");
+        console.log("Step 4: launch operation");
+        console.log("Step 5: Send back signal representing the state of the operation");
+        console.log("");
+    };
     return Desktop;
 }(Computer));
 var Laptop = /** @class */ (function (_super) {
@@ -69,6 +71,15 @@ var Laptop = /** @class */ (function (_super) {
     }
     // Fields
     // Methods
+    Laptop.prototype.process = function (data, operation) {
+        console.log("---- Processing in a Laptop Computer -------------------");
+        console.log("Step 1: Receive data to be proceesed");
+        console.log("Step 2: Receive operation to carry out on the data received");
+        console.log("Step 3: Prepare for operation");
+        console.log("Step 4: launch operation");
+        console.log("Step 5: Send back signal representing the state of the operation");
+        console.log("");
+    };
     Laptop.prototype.fold = function () {
         console.log("-----------Folding Process ----------");
         console.log("Step1: Folding");
@@ -76,9 +87,15 @@ var Laptop = /** @class */ (function (_super) {
     };
     return Laptop;
 }(Computer));
-var macBook = new Laptop("Apple", "MacBook Pro");
-macBook.input();
-macBook.process("1234567", "Storage");
-macBook.store();
-macBook.output();
-macBook.fold();
+// let computer = new Computer("HP", "XP-X");
+// computer.input()
+var desktop = new Desktop("HP", "XP-X2");
+desktop.process({}, "op");
+var laptop = new Laptop("HP", "XP-X2");
+laptop.process({}, "op");
+// const macBook = new Laptop("Apple", "MacBook Pro");
+// macBook.input();
+// macBook.process("1234567", "Storage");
+// macBook.store();
+// macBook.output();
+// macBook.fold();

@@ -1,4 +1,4 @@
-class Computer {
+abstract class Computer {
 
     // Fields
     private brand: string;
@@ -20,17 +20,8 @@ class Computer {
       console.log("");
     }
   
-    process(data, operation) {
-        console.log("---- Processing -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the operation"
-        );
-        console.log("");        
-    }
+    abstract process(data, operation):void
+
     store() {
         console.log("---- Storage Process -------------------");
         console.log("Step 1: Receive data to be stored");
@@ -58,12 +49,36 @@ class Computer {
 
 class Desktop extends Computer{
     // Fields
+
     // Methods
+    process(data: any, operation: any): void {
+        console.log("---- Processing in a Desktop Computer -------------------");
+        console.log("Step 1: Receive data to be proceesed");
+        console.log("Step 2: Receive operation to carry out on the data received");
+        console.log("Step 3: Prepare for operation");
+        console.log("Step 4: launch operation");
+        console.log(
+            "Step 5: Send back signal representing the state of the operation"
+        );
+        console.log("");        
+    }
 }
 
 class Laptop extends Computer{
     // Fields
     // Methods
+    process(data: any, operation: any): void {
+        console.log("---- Processing in a Laptop Computer -------------------");
+        console.log("Step 1: Receive data to be proceesed");
+        console.log("Step 2: Receive operation to carry out on the data received");
+        console.log("Step 3: Prepare for operation");
+        console.log("Step 4: launch operation");
+        console.log(
+            "Step 5: Send back signal representing the state of the operation"
+        );
+        console.log("");
+    }
+
     fold(){
         console.log("-----------Folding Process ----------")
         console.log("Step1: Folding")
@@ -72,9 +87,18 @@ class Laptop extends Computer{
 }
 
 
-const macBook = new Laptop("Apple", "MacBook Pro");
-macBook.input();
-macBook.process("1234567", "Storage");
-macBook.store();
-macBook.output();
-macBook.fold();
+// let computer = new Computer("HP", "XP-X");
+// computer.input()
+
+let desktop:Desktop = new Desktop("HP", "XP-X2");
+desktop.process({}, "op")
+
+let laptop:Laptop = new Laptop("HP", "XP-X2");
+laptop.process({}, "op")
+
+// const macBook = new Laptop("Apple", "MacBook Pro");
+// macBook.input();
+// macBook.process("1234567", "Storage");
+// macBook.store();
+// macBook.output();
+// macBook.fold();
