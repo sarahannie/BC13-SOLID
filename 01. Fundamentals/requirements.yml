@@ -24,10 +24,6 @@
       # Fields
       brand: string
       model: string
-      keyboard: object
-      processor: object
-      internalMemory: array
-      monitor: object
 
       # Methods
       input(): void
@@ -134,3 +130,21 @@
   # New Requirements
     # Its time to think about security features and personalization provision for our system.
     # You are required to add a User Account feature to the Computer.
+
+
+# Abstraction
+  - Super Class though Concrete
+    - just like any other nomaly class
+    - it should have sub types
+
+  - Abstract Class
+    - Abstract
+    - Should contain atleast one abstract variable (most esp a method)
+    - It is not instantiatable
+    - It can contain method definitions / behaviors
+
+  - Interface Class
+    - Abstract
+    - it only containg signatures / rules
+    - It does not contain implementations
+

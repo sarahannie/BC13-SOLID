@@ -1,5 +1,6 @@
+from abc import ABC, abstractmethod
 
-class Computer():
+class Computer(ABC):
 
     def __init__(self):
         # Fields
@@ -16,15 +17,9 @@ class Computer():
         print("Step5: Start Listening to data from keyboard")
         print("") # Empty Print statement at end of every method
     
+    @abstractmethod()
     def process(self, data, operation):
-        print("---- Processing ------------------")
-        print("Step1: Receive data to be processed")
-        print("Step2: Receive operation to carry out on data received") 
-        print("Step3: Prepare for operation") 
-        print("Step4: Launch operation")
-        print("Step5: Send back signal representing the state of the operation")
-        print("") # Empty Print statement at end of every method
-        return True
+        pass
     
     def store(self, data):
         print("---- Storage Process ------------------")
@@ -47,20 +42,47 @@ class Computer():
 
 # Inheritance: Desktop is inheriting from Computer
 class Desktop(Computer):
-    pass
+    # Fields
+
+    # Methods
+    def process(self, data, operation):
+        print("---- Processing in Desktop Computer ------------------")
+        print("Step1: Receive data to be processed")
+        print("Step2: Receive operation to carry out on data received") 
+        print("Step3: Prepare for operation") 
+        print("Step4: Launch operation")
+        print("Step5: Send back signal representing the state of the operation")
+        print("") # Empty Print statement at end of every method
+
 
 # Inheritance: Laptop is inheriting from Computer
 class Laptop(Computer):
     # Fields
     # Methods
+    def process(self, data, operation):
+        print("---- Processing in Laptop Computer ------------------")
+        print("Step1: Receive data to be processed")
+        print("Step2: Receive operation to carry out on data received") 
+        print("Step3: Prepare for operation") 
+        print("Step4: Launch operation")
+        print("Step5: Send back signal representing the state of the operation")
+        print("") # Empty Print statement at end of every method
+
     def fold(self):
         print("-----------Folding Process ----------")
         print("Step1: Folding")
         print("")
 
-my_laptop = Laptop()
-my_laptop.input()
-my_laptop.process(12, "hop")
-my_laptop.store("one")
-my_laptop.output()
-my_laptop.fold()
+
+desktop = Desktop()
+desktop.process({}, "op")
+
+laptop = Laptop()
+laptop.process({}, "op")
+
+# my_laptop = Laptop()
+# my_laptop.input()
+# my_laptop.process(12, "hop")
+# my_laptop.store("one")
+# my_laptop.output()
+# my_laptop.fold()
