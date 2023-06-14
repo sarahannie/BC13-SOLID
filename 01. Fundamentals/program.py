@@ -45,8 +45,22 @@ class Computer():
         print("Step5: Send back signal representing the state of the output operation")
         print("") # Empty Print statement at end of every method
 
-my_computer = Computer()
-my_computer.input()
-my_computer.process(12, "hop")
-my_computer.store("one")
-my_computer.output()
+# Inheritance: Desktop is inheriting from Computer
+class Desktop(Computer):
+    pass
+
+# Inheritance: Laptop is inheriting from Computer
+class Laptop(Computer):
+    # Fields
+    # Methods
+    def fold(self):
+        print("-----------Folding Process ----------")
+        print("Step1: Folding")
+        print("")
+
+my_laptop = Laptop()
+my_laptop.input()
+my_laptop.process(12, "hop")
+my_laptop.store("one")
+my_laptop.output()
+my_laptop.fold()

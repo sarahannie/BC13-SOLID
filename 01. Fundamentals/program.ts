@@ -2,8 +2,8 @@
 class Computer {
 
     // Fields
-     brand: string;
-     private model: string;
+    brand: string;
+    model: string;
 
     // Methods
     constructor(brand, model) {
@@ -56,22 +56,11 @@ class Computer {
     }
 
 }
- 
-//  Inheritance of class
-class Desktop extends Computer{
-// Field
-// Method
-
-fold(){
-    console.log("------ Folding Process-------")
-    console.log(" step folding")
-    console.log()
-}
-}
+  
 const macBook = new Computer("Apple", "MacBook Pro");
 console.log(macBook.brand);
 macBook.input();
 macBook.process("1234567", "Storage");
 macBook.store();
 macBook.output();
-  
+macBook.fold();
