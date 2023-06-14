@@ -122,7 +122,7 @@
     # Now the company wants you to incoporating a new feature into the simulation system,
     # to match the new delivery model
 
-      Hint: Subtyping Polymorphism, Programming to Interfaces not Abstractions
+      Hint: Subtyping Polymorphism, Programming to Abstraction not Implementation
 
 
 # Development Phase 5: Composition:
@@ -132,19 +132,11 @@
     # You are required to add a User Account feature to the Computer.
 
 
-# Abstraction
-  - Super Class though Concrete
-    - just like any other nomaly class
-    - it should have sub types
+Polymorphism
+  Poly = Many
+  Morph = Form
+  ism = Ability
 
-  - Abstract Class
-    - Abstract
-    - Should contain atleast one abstract variable (most esp a method)
-    - It is not instantiatable
-    - It can contain method definitions / behaviors
-
-  - Interface Class
-    - Abstract
-    - it only containg signatures / rules
-    - It does not contain implementations
-
+  Method Overloading # Make research
+  Method Overriding
+  Subtyping Polymorphism, Program to an interface

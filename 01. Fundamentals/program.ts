@@ -86,19 +86,44 @@ class Laptop extends Computer{
     }
 }
 
+class Walltop extends Computer{
+    // Fields
 
-// let computer = new Computer("HP", "XP-X");
-// computer.input()
+    // Methods
+    // Method Overriding
+    input() {
+        console.log("---- Input Using Screen Touch Technology -------------------");
+        console.log("Step 1: Listen to data from Screen");
+        console.log("Step 2: Pick data from Screen");
+        console.log("Step 3: Locate current Tourch position");
+        console.log("Step 4: Place data to the current Tourch position");
+        console.log("Step 5: Start listening to data from Screen");
+        console.log("");
+      }
+  
+    process(data: any, operation: any): void {
+        console.log("---- Processing in a Walltop Computer -------------------");
+        console.log("Step 1: Receive data to be proceesed");
+        console.log("Step 2: Receive operation to carry out on the data received");
+        console.log("Step 3: Prepare for operation");
+        console.log("Step 4: launch operation");
+        console.log(
+            "Step 5: Send back signal representing the state of the operation"
+        );
+        console.log("");        
+    }
+}
 
-let desktop:Desktop = new Desktop("HP", "XP-X2");
-desktop.process({}, "op")
 
-let laptop:Laptop = new Laptop("HP", "XP-X2");
-laptop.process({}, "op")
+let computer:Computer;
+    // can be a Desktop Computer
+    computer = new Desktop("HP", "XP-X2");
+    computer.process('s','s');
 
-// const macBook = new Laptop("Apple", "MacBook Pro");
-// macBook.input();
-// macBook.process("1234567", "Storage");
-// macBook.store();
-// macBook.output();
-// macBook.fold();
+    // can be a Laptop Computer
+    computer = new Laptop("HP", "XP-X2");
+    computer.process('s','s');
+
+    // can be a walltop Computer
+    computer = new Walltop("HP", "XP-X2");
+    computer.process('s','s');

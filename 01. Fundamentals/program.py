@@ -17,7 +17,7 @@ class Computer(ABC):
         print("Step5: Start Listening to data from keyboard")
         print("") # Empty Print statement at end of every method
     
-    @abstractmethod()
+    @abstractmethod
     def process(self, data, operation):
         pass
     
@@ -73,12 +73,40 @@ class Laptop(Computer):
         print("Step1: Folding")
         print("")
 
+# Inheritance: Walltop is inheriting from Computer
+class Walltop(Computer):
+    # Fields
 
-desktop = Desktop()
-desktop.process({}, "op")
+    # Methods
+    # Method Overriding
+    def input(self):
+        print("---- Input Process using Screen Tourch ------------------")
+        print("Step1: Listen to data from Screen")
+        print("Step2: Pick data from Screen")
+        print("Step3: Locate current tourch position")
+        print("Step4: Place data in the current tourch position")
+        print("Step5: Start Listening to data from Screen")
+        print("") # Empty Print statement at end of every method
 
-laptop = Laptop()
-laptop.process({}, "op")
+    def process(self, data, operation):
+        print("---- Processing in Walltop Computer ------------------")
+        print("Step1: Receive data to be processed")
+        print("Step2: Receive operation to carry out on data received") 
+        print("Step3: Prepare for operation") 
+        print("Step4: Launch operation")
+        print("Step5: Send back signal representing the state of the operation")
+        print("") # Empty Print statement at end of every method
+
+
+computer = Desktop()
+computer.process('s','d')
+
+computer = Laptop()
+computer.process('s','d')
+
+computer = Walltop()
+computer.process('s','d')
+
 
 # my_laptop = Laptop()
 # my_laptop.input()
