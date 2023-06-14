@@ -11,9 +11,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
 var Computer = /** @class */ (function () {
     // Methods
     function Computer(brand, model) {
+        this.user = new User();
         this.brand = brand;
         this.model = model;
     }
@@ -118,16 +124,13 @@ var Walltop = /** @class */ (function (_super) {
 var computer;
 // can be a Desktop Computer
 computer = new Desktop("HP", "XP-X2");
+console.log(computer.user.username);
 computer.process('s', 's');
 // can be a Laptop Computer
 computer = new Laptop("HP", "XP-X2");
+console.log(computer.user.username);
 computer.process('s', 's');
 // can be a walltop Computer
 computer = new Walltop("HP", "XP-X2");
+console.log(computer.user.password);
 computer.process('s', 's');
-// const macBook = new Laptop("Apple", "MacBook Pro");
-// macBook.input();
-// macBook.process("1234567", "Storage");
-// macBook.store();
-// macBook.output();
-// macBook.fold();
