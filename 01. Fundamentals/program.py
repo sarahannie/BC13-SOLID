@@ -1,11 +1,18 @@
 from abc import ABC, abstractmethod
 
+class User():
+    def __init__(self):
+        self.username = 'johndoe'
+        self.password = 'password'
+
+
 class Computer(ABC):
 
     def __init__(self):
         # Fields
         self.brand = ""
         self.model = ""
+        self.user = User()
 
     # Methods
     def input(self):
@@ -99,12 +106,15 @@ class Walltop(Computer):
 
 
 computer = Desktop()
+print(computer.user.username)
 computer.process('s','d')
 
 computer = Laptop()
+print(computer.user.username)
 computer.process('s','d')
 
 computer = Walltop()
+print(computer.user.username)
 computer.process('s','d')
 
 

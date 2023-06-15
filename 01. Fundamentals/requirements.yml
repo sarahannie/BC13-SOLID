@@ -132,11 +132,27 @@
     # You are required to add a User Account feature to the Computer.
 
 
-Polymorphism
-  Poly = Many
-  Morph = Form
-  ism = Ability
+# Development Phase 6: Violation of SOLID:
 
-  Method Overloading # Make research
-  Method Overriding
-  Subtyping Polymorphism, Program to an interface
+  # New Requirements
+    # The company now wants for every computer to have multiple ways of 
+    # inputing, processing, storing and Outputing. These multiple ways are highlighted below.
+
+      # Desktop and Laptop can input data in the following ways:
+        # Using a keyboard
+        # Using a mouse
+
+      # Each Computer can now acommodate more that one processor chips, 
+        # but only one can be used at a time, and below are the only acceptable processor brands:
+          # Intel
+          # AMD
+          # Invidia
+
+      # Computers can now store data in the following ways.
+        # All computers can store data in internal Memory
+        # Desktops and Laptops can now store Data on External Devices like SSD devices
+      
+      # Computers can now output data in the following ways.
+        # All computers can output data on their own screens
+        # Desktops and Laptops can project data on Projectors
+
