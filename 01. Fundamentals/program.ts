@@ -9,7 +9,7 @@ abstract class Computer {
     // Fields
     private brand: string;
     private model: string;
-    public user = new User();
+     user = new User();
 
     // Methods
     constructor(brand, model) {
