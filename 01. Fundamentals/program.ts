@@ -17,29 +17,60 @@ abstract class Computer {
       this.model = model;
     }
   
-    input() {
-      console.log("---- Input Process -------------------");
-      console.log("Step 1: Listen to data from keyboard");
-      console.log("Step 2: Pick data from keyboard");
-      console.log("Step 3: Locate current cursor position");
-      console.log("Step 4: Place data to the current cursor position");
-      console.log("Step 5: Start listening to data from keyboard");
-      console.log("");
+    input(data: any, device: string) {
+        if (device == "keyboard"){
+            console.log("---- Data input from Keyboard -------------------");
+            console.log("Step 1: Listen to data from keyboard");
+            console.log("Step 2: Pick data from keyboard");
+            console.log("Step 3: Locate current cursor position");
+            console.log("Step 4: Place data to the current cursor position");
+            console.log("Step 5: Start listening to data from keyboard");
+            console.log("");
+        }
+        else if (device == "mouse"){
+            console.log("---- Data input from Mouse -------------------");
+            console.log("Step 1: Listen to data from Mouse");
+            console.log("");
+
+        }
+        else{}
     }
   
-    abstract process(data, operation):void
-
-    store() {
-        console.log("---- Storage Process -------------------");
-        console.log("Step 1: Receive data to be stored");
-        console.log("Step 2: Open internal memory where data is to be stored");
-        console.log("Step 3: Prepare for data storage");
-        console.log("Step 4: launch storage operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the storage operation"
-        );
-        console.log("");        
+    process(data, operation, chip){
+        if (chip == "Intel"){
+            console.log("--------------------");
+            console.log("Processing using Intel Chip..");
+            console.log("");
+        }        
+        else if (chip == "AMD"){
+            console.log("--------------------");
+            console.log("Processing using AMD Chip..");
+            console.log("");
+        }        
+        else if (chip == "Invidia"){
+            console.log("--------------------");
+            console.log("Processing using Invidia Chip..");
+            console.log("");
+        }
+        else {}      
     }
+
+    store(memory:string) {
+        if(memory=="SSD"){
+            console.log("storing data on SSD");
+        }else{
+            console.log("---- Storing data in internal memory -------------------");
+            console.log("Step 1: Receive data to be stored");
+            console.log("Step 2: Open internal memory where data is to be stored");
+            console.log("Step 3: Prepare for data storage");
+            console.log("Step 4: launch storage operation");
+            console.log(
+                "Step 5: Send back signal representing the state of the storage operation"
+            );
+            console.log("");    
+        }
+    }
+
     output() {
         console.log("---- Output Process -------------------");
         console.log("Step 1: Receive data to be output");
@@ -58,34 +89,11 @@ class Desktop extends Computer{
     // Fields
 
     // Methods
-    process(data: any, operation: any): void {
-        console.log("---- Processing in a Desktop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the operation"
-        );
-        console.log("");        
-    }
 }
 
 class Laptop extends Computer{
     // Fields
     // Methods
-    process(data: any, operation: any): void {
-        console.log("---- Processing in a Laptop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the operation"
-        );
-        console.log("");
-    }
-
     fold(){
         console.log("-----------Folding Process ----------")
         console.log("Step1: Folding")
@@ -107,33 +115,18 @@ class Walltop extends Computer{
         console.log("Step 5: Start listening to data from Screen");
         console.log("");
       }
-  
-    process(data: any, operation: any): void {
-        console.log("---- Processing in a Walltop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the operation"
-        );
-        console.log("");        
-    }
 }
 
 
 let computer:Computer;
     // can be a Desktop Computer
     computer = new Desktop("HP", "XP-X2");
-    console.log(computer.user.username);    
-    computer.process('s','s');
+    computer.input('cccgdnbhx','mouse');
 
     // can be a Laptop Computer
     computer = new Laptop("HP", "XP-X2");
-    console.log(computer.user.username);    
-    computer.process('s','s');
+    computer.input('cccgdnbhx','keyboard');
 
     // can be a walltop Computer
     computer = new Walltop("HP", "XP-X2");
-    console.log(computer.user.password);    
-    computer.process('s','s');
+    computer.process('s','s', "Invidia");

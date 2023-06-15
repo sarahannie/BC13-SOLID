@@ -13,6 +13,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var User = /** @class */ (function () {
     function User() {
+        // Fields
+        this.username = 'johndoe';
+        this.password = 'pswd';
     }
     return User;
 }());
@@ -23,14 +26,40 @@ var Computer = /** @class */ (function () {
         this.brand = brand;
         this.model = model;
     }
-    Computer.prototype.input = function () {
-        console.log("---- Input Process -------------------");
-        console.log("Step 1: Listen to data from keyboard");
-        console.log("Step 2: Pick data from keyboard");
-        console.log("Step 3: Locate current cursor position");
-        console.log("Step 4: Place data to the current cursor position");
-        console.log("Step 5: Start listening to data from keyboard");
-        console.log("");
+    Computer.prototype.input = function (data, device) {
+        if (device == "keyboard") {
+            console.log("---- Data input from Keyboard -------------------");
+            console.log("Step 1: Listen to data from keyboard");
+            console.log("Step 2: Pick data from keyboard");
+            console.log("Step 3: Locate current cursor position");
+            console.log("Step 4: Place data to the current cursor position");
+            console.log("Step 5: Start listening to data from keyboard");
+            console.log("");
+        }
+        else if (device == "mouse") {
+            console.log("---- Data input from Mouse -------------------");
+            console.log("Step 1: Listen to data from Mouse");
+            console.log("");
+        }
+        else { }
+    };
+    Computer.prototype.process = function (data, operation, chip) {
+        if (chip == "Intel") {
+            console.log("--------------------");
+            console.log("Processing using Intel Chip..");
+            console.log("");
+        }
+        else if (chip == "AMD") {
+            console.log("--------------------");
+            console.log("Processing using AMD Chip..");
+            console.log("");
+        }
+        else if (chip == "Invidia") {
+            console.log("--------------------");
+            console.log("Processing using Invidia Chip..");
+            console.log("");
+        }
+        else { }
     };
     Computer.prototype.store = function () {
         console.log("---- Storage Process -------------------");
@@ -57,17 +86,6 @@ var Desktop = /** @class */ (function (_super) {
     function Desktop() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    // Fields
-    // Methods
-    Desktop.prototype.process = function (data, operation) {
-        console.log("---- Processing in a Desktop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log("Step 5: Send back signal representing the state of the operation");
-        console.log("");
-    };
     return Desktop;
 }(Computer));
 var Laptop = /** @class */ (function (_super) {
@@ -77,15 +95,6 @@ var Laptop = /** @class */ (function (_super) {
     }
     // Fields
     // Methods
-    Laptop.prototype.process = function (data, operation) {
-        console.log("---- Processing in a Laptop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log("Step 5: Send back signal representing the state of the operation");
-        console.log("");
-    };
     Laptop.prototype.fold = function () {
         console.log("-----------Folding Process ----------");
         console.log("Step1: Folding");
@@ -110,27 +119,15 @@ var Walltop = /** @class */ (function (_super) {
         console.log("Step 5: Start listening to data from Screen");
         console.log("");
     };
-    Walltop.prototype.process = function (data, operation) {
-        console.log("---- Processing in a Walltop Computer -------------------");
-        console.log("Step 1: Receive data to be proceesed");
-        console.log("Step 2: Receive operation to carry out on the data received");
-        console.log("Step 3: Prepare for operation");
-        console.log("Step 4: launch operation");
-        console.log("Step 5: Send back signal representing the state of the operation");
-        console.log("");
-    };
     return Walltop;
 }(Computer));
 var computer;
 // can be a Desktop Computer
 computer = new Desktop("HP", "XP-X2");
-console.log(computer.user.username);
-computer.process('s', 's');
+computer.input('cccgdnbhx', 'mouse');
 // can be a Laptop Computer
 computer = new Laptop("HP", "XP-X2");
-console.log(computer.user.username);
-computer.process('s', 's');
+computer.input('cccgdnbhx', 'keyboard');
 // can be a walltop Computer
 computer = new Walltop("HP", "XP-X2");
-console.log(computer.user.password);
-computer.process('s', 's');
+computer.process('s', 's', "Invidia");
