@@ -91,7 +91,6 @@ The SOLID Principles:
       - "High level modules should not depend on Low level modules,
         instead both should depend on an interface"
 
-
   - Ideals (Success Criteria):
     - Single Responsbility
     - Open-Closed

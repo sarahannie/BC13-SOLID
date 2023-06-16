@@ -4,36 +4,51 @@ class User{
     password:string =  'pswd'
 }
 
+// Input Devices
+interface InputDevice{
+    input(data:any):void
+}
+
+class KeyBoard implements InputDevice{
+    input(data){
+        console.log("---- Data input from Keyboard -------------------");
+        console.log("Step 1: Listen to data from keyboard");
+        console.log("Step 2: Pick data from keyboard");
+        console.log("Step 3: Locate current cursor position");
+        console.log("Step 4: Place data to the current cursor position");
+        console.log("Step 5: Start listening to data from keyboard");
+        console.log("");
+
+    }
+}
+
+class Mouse implements InputDevice{
+    input(data){
+        console.log("---- Data input from Mouse -------------------");
+        console.log("Step 1: Listen to data from Mouse");
+        console.log("");        
+    }
+}
+
+
+// Computer Classes
 abstract class Computer {
 
     // Fields
     private brand: string;
     private model: string;
-    public user = new User();
+    private user = new User();
+    private inputDevice:InputDevice;
 
     // Methods
-    constructor(brand, model) {
+    constructor(brand, model, inputDevice:InputDevice) {
       this.brand = brand;
       this.model = model;
+      this.inputDevice = inputDevice;
     }
   
-    input(data: any, device: string) {
-        if (device == "keyboard"){
-            console.log("---- Data input from Keyboard -------------------");
-            console.log("Step 1: Listen to data from keyboard");
-            console.log("Step 2: Pick data from keyboard");
-            console.log("Step 3: Locate current cursor position");
-            console.log("Step 4: Place data to the current cursor position");
-            console.log("Step 5: Start listening to data from keyboard");
-            console.log("");
-        }
-        else if (device == "mouse"){
-            console.log("---- Data input from Mouse -------------------");
-            console.log("Step 1: Listen to data from Mouse");
-            console.log("");
-
-        }
-        else{}
+    input(data: any) {
+        this.inputDevice.input(data)
     }
   
     process(data, operation, chip){
@@ -71,16 +86,17 @@ abstract class Computer {
         }
     }
 
-    output() {
-        console.log("---- Output Process -------------------");
-        console.log("Step 1: Receive data to be output");
-        console.log("Step 2: Open monitor where data is to be dispalyed");
-        console.log("Step 3: Prepare for data output process");
-        console.log("Step 4: launch output operation");
-        console.log(
-            "Step 5: Send back signal representing the state of the output operation"
-        );
-        console.log("");       
+    output(data, device) {
+        if (device == "monitor"){
+            console.log("---- Data input from Monitor -------------------");
+            console.log("");
+        }
+        else if (device == "projector"){
+            console.log("---- Data input from Projector -------------------");
+            console.log("");
+
+        }
+        else{}
     }
 
 }
@@ -106,27 +122,21 @@ class Walltop extends Computer{
 
     // Methods
     // Method Overriding
-    input() {
-        console.log("---- Input Using Screen Touch Technology -------------------");
-        console.log("Step 1: Listen to data from Screen");
-        console.log("Step 2: Pick data from Screen");
-        console.log("Step 3: Locate current Tourch position");
-        console.log("Step 4: Place data to the current Tourch position");
-        console.log("Step 5: Start listening to data from Screen");
-        console.log("");
-      }
+ 
 }
 
 
+// Objects
 let computer:Computer;
     // can be a Desktop Computer
-    computer = new Desktop("HP", "XP-X2");
-    computer.input('cccgdnbhx','mouse');
+    computer = new Desktop("HP", "XP-X2", new Mouse());
+    computer.input('cccgdnbhx');
 
     // can be a Laptop Computer
-    computer = new Laptop("HP", "XP-X2");
-    computer.input('cccgdnbhx','keyboard');
+    computer = new Laptop("HP", "XP-X2", new KeyBoard());
+    computer.input('cccgdnbhx');
 
     // can be a walltop Computer
-    computer = new Walltop("HP", "XP-X2");
-    computer.process('s','s', "Invidia");
+    computer = new Walltop("HP", "XP-X2", new KeyBoard());
+    computer.input('cccgdnbhx');
+

@@ -146,7 +146,7 @@
         # but only one can be used at a time, and below are the only acceptable processor brands:
           # Intel
           # AMD
-          # Invidia
+          # NVIDIA
 
       # Computers can now store data in the following ways.
         # All computers can store data in internal Memory
@@ -155,4 +155,49 @@
       # Computers can now output data in the following ways.
         # All computers can output data on their own screens
         # Desktops and Laptops can project data on Projectors
+
+# Development Phase 7: Implementation of SOLID:
+  # Make the code resilint to change as much as you can.
+    # Refactor code to ensure that all classes and relationships in the code conform to the SOLID principles
+
+1. Extraction
+2. Encapsulation
+  - SRP
+3. Composition
+4. Delegation
+--
+5. Dedendance Inversion Principle
+6. Dependancy Injection Principle
+  - Parameterizing a Constructor
+  - Getters and Setter
+
+7. Interface Segregation Principle
+
+
+
+
+# LSP
+# ISP
+
+C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

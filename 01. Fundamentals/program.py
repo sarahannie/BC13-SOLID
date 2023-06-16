@@ -5,14 +5,34 @@ class User():
         self.username = 'johndoe'
         self.password = 'password'
 
+class ProcessorChip(ABC):
+    @abstractmethod
+    def process(self, data):
+        pass
+
+class Intel(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using Intel Chip ------------------")
+        print("") # Empty Print statement at end of every method
+
+class AMD(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using AMD Chip ------------------")
+        print("") # Empty Print statement at end of every method
+
+class INVIDIA(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using AMD Invidia ------------------")
+        print("") # Empty Print statement at end of every method
 
 class Computer(ABC):
 
-    def __init__(self):
+    def __init__(self, processor_chip):
         # Fields
         self.brand = ""
         self.model = ""
         self.user = User()
+        self.processor_chip = processor_chip
 
     # Methods
     def input(self, data, device):
@@ -35,19 +55,8 @@ class Computer(ABC):
         else:
             pass
     
-
-    def process(self, data, operation, chip):
-        if chip == 'Intel':
-            print("---- Proceessing using Intel Chip ------------------")
-            print("") # Empty Print statement at end of every method
-        elif chip == 'AMD':
-            print("---- Proceessing using AMD Chip ------------------")
-            print("") # Empty Print statement at end of every method
-        elif chip == 'Invidia':
-            print("---- Proceessing using AMD Invidia ------------------")
-            print("") # Empty Print statement at end of every method
-        else:
-            pass
+    def process(self, data):
+        self.processor_chip.process(data)
     
     def store(self, data):
         print("---- Storage Process ------------------")
@@ -59,14 +68,15 @@ class Computer(ABC):
         print("") # Empty Print statement at end of every method
         return True
     
-    def output(self):
-        print("---- Output Process ------------------")
-        print("Step1: Receive data to be output")
-        print("Step2: Open monitor where data is to displayed")
-        print("Step3: Prepare for data output operation")
-        print("Step4: Launch output operation")
-        print("Step5: Send back signal representing the state of the output operation")
-        print("") # Empty Print statement at end of every method
+    def output(self, data, device):
+        if device == 'monitor':
+            print("---- Inputing data from Monitor ------------------")
+            print("") # Empty Print statement at end of every method
+        elif device == 'projector':
+            print("---- Inputing data from Projector ------------------")
+            print("") # Empty Print statement at end of every method
+        else:
+            pass
 
 # Inheritance: Desktop is inheriting from Computer
 class Desktop(Computer):
@@ -102,14 +112,14 @@ class Walltop(Computer):
         print("") # Empty Print statement at end of every method
 
 
-computer = Desktop()
+computer = Desktop(INVIDIA())
 computer.input('s','mouse')
 
-computer = Laptop()
+computer = Laptop(AMD())
 computer.input('s','keyboard')
 
-computer = Walltop()
-computer.process('s','d', 'Intel')
+computer = Walltop(AMD())
+computer.process('s')
 
 
 # my_laptop = Laptop()
@@ -118,3 +128,4 @@ computer.process('s','d', 'Intel')
 # my_laptop.store("one")
 # my_laptop.output()
 # my_laptop.fold()
+
