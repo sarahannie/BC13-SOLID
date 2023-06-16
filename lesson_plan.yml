@@ -72,11 +72,25 @@
 
 The SOLID Principles:
   - Principles:
-    - Single Responsbility Principle
-    - Open-Closed Principle
-    - Liskov's Substitution Principle
-    - Interface Substitution Principle
-    - Dependency Inversion Principle
+    - S => Single Responsbility Principle (SRP):
+      - "A class should have only one reason for change"
+      - In other words a class should serve only one responsbility
+
+    - O => Open-Closed Principle (OCP):
+      - "A class should be Open for Extension but closed for Modification"
+
+    - L => Liskov's Substitution Principle (LSP):
+      - "If T is a Type and S is a Subtype of T, 
+        then The objects of T should be replaceable with
+        Objects of S"
+
+    - I => Interface Segregation Principle (ISP):
+      - "A class should not be forced to depend on an Interface it does not need"
+
+    - D => Dependency Inversion Principle (DIP):
+      - "High level modules should not depend on Low level modules,
+        instead both should depend on an interface"
+
 
   - Ideals (Success Criteria):
     - Single Responsbility
@@ -84,8 +98,8 @@ The SOLID Principles:
     - Liskov's Substitution
 
   - Action Points:
-    - Interface Segregation
-    - Dependency Inversion
+    - Interface Segregation (Segregate Interfaces)
+    - Dependency Inversion (Invert Dependancies)
 
 Design Patterns:
   - 

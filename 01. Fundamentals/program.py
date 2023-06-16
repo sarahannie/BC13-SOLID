@@ -15,18 +15,39 @@ class Computer(ABC):
         self.user = User()
 
     # Methods
-    def input(self):
-        print("---- Input Process ------------------")
-        print("Step1: Listen to data from keyboard")
-        print("Step2: Pick data from Keyboard")
-        print("Step3: Locate current cursor position")
-        print("Step4: Place data in the current cursor position")
-        print("Step5: Start Listening to data from keyboard")
-        print("") # Empty Print statement at end of every method
+    def input(self, data, device):
+        if device == 'keyboard':
+            print("---- Inputing data from keyboard ------------------")
+            print("Step1: Listen to data from keyboard")
+            print("Step2: Pick data from Keyboard")
+            print("Step3: Locate current cursor position")
+            print("Step4: Place data in the current cursor position")
+            print("Step5: Start Listening to data from keyboard")
+            print("") # Empty Print statement at end of every method
+        elif device == 'mouse':
+            print("---- Inputing data from mouse ------------------")
+            print("Step1: Listen to data from mouse")
+            print("Step2: Pick data from mouse")
+            print("Step3: Locate current cursor position")
+            print("Step4: Place data in the current cursor position")
+            print("Step5: Start Listening to data from mouse")
+            print("") # Empty Print statement at end of every method
+        else:
+            pass
     
-    @abstractmethod
-    def process(self, data, operation):
-        pass
+
+    def process(self, data, operation, chip):
+        if chip == 'Intel':
+            print("---- Proceessing using Intel Chip ------------------")
+            print("") # Empty Print statement at end of every method
+        elif chip == 'AMD':
+            print("---- Proceessing using AMD Chip ------------------")
+            print("") # Empty Print statement at end of every method
+        elif chip == 'Invidia':
+            print("---- Proceessing using AMD Invidia ------------------")
+            print("") # Empty Print statement at end of every method
+        else:
+            pass
     
     def store(self, data):
         print("---- Storage Process ------------------")
@@ -50,30 +71,15 @@ class Computer(ABC):
 # Inheritance: Desktop is inheriting from Computer
 class Desktop(Computer):
     # Fields
+    pass
 
     # Methods
-    def process(self, data, operation):
-        print("---- Processing in Desktop Computer ------------------")
-        print("Step1: Receive data to be processed")
-        print("Step2: Receive operation to carry out on data received") 
-        print("Step3: Prepare for operation") 
-        print("Step4: Launch operation")
-        print("Step5: Send back signal representing the state of the operation")
-        print("") # Empty Print statement at end of every method
-
 
 # Inheritance: Laptop is inheriting from Computer
 class Laptop(Computer):
     # Fields
     # Methods
-    def process(self, data, operation):
-        print("---- Processing in Laptop Computer ------------------")
-        print("Step1: Receive data to be processed")
-        print("Step2: Receive operation to carry out on data received") 
-        print("Step3: Prepare for operation") 
-        print("Step4: Launch operation")
-        print("Step5: Send back signal representing the state of the operation")
-        print("") # Empty Print statement at end of every method
+    pass
 
     def fold(self):
         print("-----------Folding Process ----------")
@@ -95,27 +101,15 @@ class Walltop(Computer):
         print("Step5: Start Listening to data from Screen")
         print("") # Empty Print statement at end of every method
 
-    def process(self, data, operation):
-        print("---- Processing in Walltop Computer ------------------")
-        print("Step1: Receive data to be processed")
-        print("Step2: Receive operation to carry out on data received") 
-        print("Step3: Prepare for operation") 
-        print("Step4: Launch operation")
-        print("Step5: Send back signal representing the state of the operation")
-        print("") # Empty Print statement at end of every method
-
 
 computer = Desktop()
-print(computer.user.username)
-computer.process('s','d')
+computer.input('s','mouse')
 
 computer = Laptop()
-print(computer.user.username)
-computer.process('s','d')
+computer.input('s','keyboard')
 
 computer = Walltop()
-print(computer.user.username)
-computer.process('s','d')
+computer.process('s','d', 'Intel')
 
 
 # my_laptop = Laptop()
