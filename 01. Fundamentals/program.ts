@@ -60,55 +60,55 @@ class Nvidia implements ProccessorChip {
 }
 
 //store
-interface StorageDevice{
-    store(data:any):void
+interface StorageDevice {
+    store(data: any): void
 }
 
-class InternalMemory implements StorageDevice{
+class InternalMemory implements StorageDevice {
     store(data) {
         console.log("---- Storing data in internal memory -------------------");
-            console.log("Step 1: Receive data to be stored");
-            console.log("Step 2: Open internal memory where data is to be stored");
-            console.log("Step 3: Prepare for data storage");
-            console.log("Step 4: launch storage operation");
-            console.log(
-                "Step 5: Send back signal representing the state of the storage operation"
-            );
-            console.log("");   
+        console.log("Step 1: Receive data to be stored");
+        console.log("Step 2: Open internal memory where data is to be stored");
+        console.log("Step 3: Prepare for data storage");
+        console.log("Step 4: launch storage operation");
+        console.log(
+            "Step 5: Send back signal representing the state of the storage operation"
+        );
+        console.log("");
     }
 }
 
-interface ExternalDevice extends StorageDevice{
+interface ExternalDevice extends StorageDevice {
     //Fields
 
     //Methods
 }
 
 class SSD implements ExternalDevice {
-    store(data){
+    store(data) {
         console.log("storing data on SSD");
     }
 }
 
 class HDD implements ExternalDevice {
-    store(data){
+    store(data) {
         console.log("storing data on HDD");
     }
 }
 
 //Output Device
-interface OutputDevice{
-    output(data:any):void
+interface OutputDevice {
+    output(data: any): void
 }
 
-class Monitor implements OutputDevice{
+class Monitor implements OutputDevice {
     output(data) {
         console.log("---- Data output from Monitor -------------------");
         console.log("");
     }
 }
 
-class Projector implements OutputDevice{
+class Projector implements OutputDevice {
     output(data) {
         console.log("---- Data output from Projector -------------------");
         console.log("");
@@ -123,25 +123,25 @@ abstract class Computer {
     private model: string;
     private user = new User();
     private inputDevice: InputDevice;
-    private proccessorChip : ProccessorChip;
-    private storageDevice : StorageDevice;
-    private outputDevice : OutputDevice;
+    private proccessorChip: ProccessorChip;
+    private storageDevice: StorageDevice;
+    private outputDevice: OutputDevice;
 
     // Methods
-    constructor(brand, model, inputDevice: InputDevice, proccessorChip : ProccessorChip, storageDevice : StorageDevice, outputDevice : OutputDevice) {
+    constructor(brand, model, inputDevice: InputDevice, proccessorChip: ProccessorChip, storageDevice: StorageDevice, outputDevice: OutputDevice) {
         this.brand = brand;
         this.model = model;
         this.inputDevice = inputDevice;
         this.proccessorChip = proccessorChip;
         this.storageDevice = storageDevice;
-        this.outputDevice = outputDevice
+        this.outputDevice = outputDevice;
     }
 
     input(data: any) {
         this.inputDevice.input(data)
     }
 
-    process(data:any) {
+    process(data: any) {
         this.proccessorChip.process(data)
     }
 
@@ -151,6 +151,46 @@ abstract class Computer {
 
     output(data) {
         this.outputDevice.output(data)
+    }
+
+    // Setters
+    setBrand(brand: string) {
+        this.brand = brand;
+    }
+    setModel(model: string) {
+        this.model = model;
+    }
+    setInputDevice(inputDevice: InputDevice) {
+        this.inputDevice = inputDevice;
+    }
+    setProcessorChip(proccessorChip: ProccessorChip) {
+        this.proccessorChip = proccessorChip;
+    }
+    setStorageDevice(storageDevice: StorageDevice) {
+        this.storageDevice = storageDevice;
+    }
+    setOutputDevice(outputDevice: OutputDevice) {
+        this.outputDevice = outputDevice;
+    }
+
+    //getters
+    getBrand() {
+        return this.brand;
+    }
+    getModel() {
+        return this.model;
+    }
+    getInputDevice() {
+        return this.inputDevice;
+    }
+    getProcessorChip() {
+        return this.proccessorChip;
+    }
+    getStorageDevice() {
+        return this.storageDevice;
+    }
+    getOutputDevice() {
+        return this.outputDevice;
     }
 
 }
@@ -184,15 +224,26 @@ class Walltop extends Computer {
 let computer: Computer;
 // can be a Desktop Computer
 computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector());
-computer.output('cccgdnbhx');
+computer.setBrand("DELL");
+console.log(computer.getBrand());
+
 
 // can be a Laptop Computer
 computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor());
 computer.process('cccgdnbhx');
+computer.setInputDevice(new Mouse());
+console.log(computer.getInputDevice());
+computer.input("");
 
-// can be a walltop Computer
+
+// // can be a walltop Computer
 computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector());
 computer.store('cccgdnbhx');
+computer.setStorageDevice(new SSD());
+console.log(computer.getStorageDevice());
+computer.store('x');
+
+
 
 
 
