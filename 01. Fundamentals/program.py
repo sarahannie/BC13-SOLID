@@ -2,9 +2,23 @@ from abc import ABC, abstractmethod
 
 
 class User:
-    def __init__(self):
-        self.username = "johndoe"
-        self.password = "password"
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    #setters
+    def set_username(self, username):
+        self.username = username
+
+    def set_password(self, password):
+        self.password = password
+
+    #getters
+    def get_username(self):
+        return self.username
+    
+    def get_password(self):
+        return self.password
 
 
 class InputDevice(ABC):
@@ -131,7 +145,21 @@ class Computer(ABC):
         self.memory = memory
         self.output_device = output_device
 
-    # Methods
+    def set_input(self, input_device):
+        self.input_device = input_device
+
+    def set_processor_chip(self, processor_chip):
+        self.processor_chip = processor_chip
+
+    def set_memory(self, memory):
+        self.memory = memory
+
+    def set_output_device(self, output_device):
+        self.output_device = output_device    
+
+
+
+"""    # Methods
     def input(self, data):
         self.input_device.input(data)
 
@@ -142,7 +170,7 @@ class Computer(ABC):
         self.memory.store(data)
 
     def output(self, data):
-        self.output_device.output(data)
+        self.output_device.output(data)"""
 
 
 # Inheritance: Desktop is inheriting from Computer
@@ -169,8 +197,18 @@ class Walltop(Computer):
     # Fields
     pass
 
+user = User("Shafic", "profic")
 
-computer = Desktop(Keyboard(), Nvidia(), InternalMemory(), Projector())
+print(user.get_username(), user.get_password())
+
+user.set_username("Bruce")
+user.set_password("admin")
+
+print(user.get_username(), user.get_password())
+
+
+
+"""computer = Desktop(Keyboard(), Nvidia(), InternalMemory(), Projector())
 computer.process("see")
 computer.store("1")
 computer.output("12")
@@ -185,7 +223,7 @@ computer = Walltop(Keyboard(), Intel(), SSD(), Monitor())
 computer.process("s")
 computer.store("3")
 computer.output("abs")
-
+"""
 
 # my_laptop = Laptop()
 # my_laptop.input()
