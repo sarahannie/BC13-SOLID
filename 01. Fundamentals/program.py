@@ -51,7 +51,7 @@ class Mouse(InputDevice):
 
 class TouchScreen(InputDevice):
     def input(self, data):
-        print("---- Input Process using Screen Tourch ------------------")
+        print("---- Input Process using Screen Touch ------------------")
         print("Step1: Listen to data from Screen")
         print("Step2: Pick data from Screen")
         print("Step3: Locate current tourch position")
@@ -139,13 +139,14 @@ class Computer(ABC):
         # Fields
         self.brand = ""
         self.model = ""
-        self.user = User()
+        self.user = User(username=None, password=None)
         self.input_device = input_device
         self.processor_chip = processor_chip
         self.memory = memory
         self.output_device = output_device
 
-    def set_input(self, input_device):
+    #setters
+    def set_input(self, input_device:str):
         self.input_device = input_device
 
     def set_processor_chip(self, processor_chip):
@@ -155,11 +156,24 @@ class Computer(ABC):
         self.memory = memory
 
     def set_output_device(self, output_device):
-        self.output_device = output_device    
+        self.output_device = output_device   
+
+    #getters
+    def get_input(self):
+        return self.input_device
+
+    def get_processor_chip(self):
+        return self.processor_chip
+    
+    def get_memory(self):
+        return self.memory
+    
+    def get_output_device(self):
+        return self.output_device
 
 
 
-"""    # Methods
+    # Methods
     def input(self, data):
         self.input_device.input(data)
 
@@ -170,7 +184,7 @@ class Computer(ABC):
         self.memory.store(data)
 
     def output(self, data):
-        self.output_device.output(data)"""
+        self.output_device.output(data)
 
 
 # Inheritance: Desktop is inheriting from Computer
@@ -197,6 +211,8 @@ class Walltop(Computer):
     # Fields
     pass
 
+
+
 user = User("Shafic", "profic")
 
 print(user.get_username(), user.get_password())
@@ -206,14 +222,15 @@ user.set_password("admin")
 
 print(user.get_username(), user.get_password())
 
-
-
-"""computer = Desktop(Keyboard(), Nvidia(), InternalMemory(), Projector())
+computer = Desktop(Keyboard(), Nvidia(), InternalMemory(), Projector())
+computer.set_input(TouchScreen())
+computer.input("blah")
 computer.process("see")
 computer.store("1")
 computer.output("12")
 
-computer = Laptop(Mouse(), AMD(), SSD(), Projector())
+
+"""computer = Laptop(Mouse(), AMD(), SSD(), Projector())
 computer.input("soo")
 computer.process("ts")
 computer.store("2")
@@ -222,8 +239,8 @@ computer.output("12")
 computer = Walltop(Keyboard(), Intel(), SSD(), Monitor())
 computer.process("s")
 computer.store("3")
-computer.output("abs")
-"""
+computer.output("abs")"""
+
 
 # my_laptop = Laptop()
 # my_laptop.input()
