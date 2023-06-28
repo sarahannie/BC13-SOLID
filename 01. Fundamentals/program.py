@@ -92,7 +92,7 @@ class Memory(ABC):
 
 class SSD(Memory):
     def store(self, data):
-        print("storing data on SSD")
+        print("--------storing data on SSD----------\n")
 
 
 class InternalMemory(Memory):
@@ -132,6 +132,7 @@ class Projector(OutputDevice):
         print("Step4: Launch output operation")
         print("Step5: Send back signal representing the state of the output operation")
         print("")
+
 
 
 class Computer(ABC):
@@ -225,21 +226,27 @@ print(user.get_username(), user.get_password())
 computer = Desktop(Keyboard(), Nvidia(), InternalMemory(), Projector())
 computer.set_input(TouchScreen())
 computer.input("blah")
+computer.set_memory(SSD())
 computer.process("see")
 computer.store("1")
 computer.output("12")
 
 
-"""computer = Laptop(Mouse(), AMD(), SSD(), Projector())
+computer = Laptop(Mouse(), AMD(), SSD(), Projector())
 computer.input("soo")
 computer.process("ts")
 computer.store("2")
+computer.set_output_device(Monitor())
 computer.output("12")
 
 computer = Walltop(Keyboard(), Intel(), SSD(), Monitor())
+computer.set_processor_chip(Nvidia())
 computer.process("s")
+#computer.set_memory(InternalMemory())
 computer.store("3")
-computer.output("abs")"""
+computer.set_input(TouchScreen())
+computer.input("simsim")
+computer.output("abs")
 
 
 # my_laptop = Laptop()
