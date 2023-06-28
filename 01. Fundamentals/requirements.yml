@@ -160,6 +160,16 @@
   # Make the code resilint to change as much as you can.
     # Refactor code to ensure that all classes and relationships in the code conform to the SOLID principles
 
+
+# Development Phase 8: The Singleton Pattern:
+  # Its time to implement the User Management Feature. Implement this feeature in such a way that:
+    # A computer allows for creation of a User Acount
+    # If a computer has user accounts, then it can only be used if there is a user logged in.
+    # A computer allows for logging in by a user
+    # A computer provides for logging out a user
+    # Most Importantly: there can only be one loggedIn user at a time.
+      # I.e. if there is a loggedin user, he/she must be signed out before any other user can login
+
 1. Extraction
 2. Encapsulation
   - SRP
