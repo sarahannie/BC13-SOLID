@@ -147,6 +147,44 @@ var Computer = /** @class */ (function () {
     Computer.prototype.output = function (data) {
         this.outputDevice.output(data);
     };
+    // Setters
+    Computer.prototype.setBrand = function (brand) {
+        this.brand = brand;
+    };
+    Computer.prototype.setModel = function (model) {
+        this.model = model;
+    };
+    Computer.prototype.setInputDevice = function (inputDevice) {
+        this.inputDevice = inputDevice;
+    };
+    Computer.prototype.setProcessorChip = function (proccessorChip) {
+        this.proccessorChip = proccessorChip;
+    };
+    Computer.prototype.setStorageDevice = function (storageDevice) {
+        this.storageDevice = storageDevice;
+    };
+    Computer.prototype.setOutputDevice = function (outputDevice) {
+        this.outputDevice = outputDevice;
+    };
+    //getters
+    Computer.prototype.getBrand = function () {
+        return this.brand;
+    };
+    Computer.prototype.getModel = function () {
+        return this.model;
+    };
+    Computer.prototype.getInputDevice = function () {
+        return this.inputDevice;
+    };
+    Computer.prototype.getProcessorChip = function () {
+        return this.proccessorChip;
+    };
+    Computer.prototype.getStorageDevice = function () {
+        return this.storageDevice;
+    };
+    Computer.prototype.getOutputDevice = function () {
+        return this.outputDevice;
+    };
     return Computer;
 }());
 var Desktop = /** @class */ (function (_super) {
@@ -181,10 +219,17 @@ var Walltop = /** @class */ (function (_super) {
 var computer;
 // can be a Desktop Computer
 computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector());
-computer.output('cccgdnbhx');
+computer.setBrand("DELL");
+console.log(computer.getBrand());
 // can be a Laptop Computer
 computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor());
 computer.process('cccgdnbhx');
-// can be a walltop Computer
+computer.setInputDevice(new Mouse());
+console.log(computer.getInputDevice());
+computer.input("");
+// // can be a walltop Computer
 computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector());
 computer.store('cccgdnbhx');
+computer.setStorageDevice(new SSD());
+console.log(computer.getStorageDevice());
+computer.store('x');
