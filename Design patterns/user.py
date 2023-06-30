@@ -1,35 +1,61 @@
-# Variable Injection & Dependancy Injection
-    # Parameterized constructor
-    # Setters and Getter
-
+"""Singleton Design Pattern"""
 
 # Class
 class User():
+    """class to demonstrate singleton pattern"""
+    __instance = None
 
-    def __init__(self, username:str, password:str):
-        # Data
-        self.username = username
-        self.password = password
+    @staticmethod
+    def login(cred):
+        """get the current instance of the class"""
+        if User.__instance is None:
+            return User(cred.username, cred.password)
+            #return User(cred.__instance.username, cred.__instance.password)
+        return User.__instance
+
+    def __init__(self, username: str, password: str):
+        """ User class demonstrating Singleton Pattern"""
+        if User.__instance is None:
+            self.username = username
+            self.password = password
+            User.__instance = self
+        #else:
+            #raise Exception("User logged in")
     
-    def set_username(self, username:str):
+    @staticmethod   
+    def logout():
+        """log out/ end session for current instance"""
+        User.__instance = None
+        
+    def set_username(self, username: str):
+        """set username"""
         self.username = username
-    
-    def set_password(self, password:str):
+
+    def set_password(self, password: str):
+        """set the password"""
         self.password = password
 
     def get_username(self):
-        return self.username
-    
-    def get_password(self):
-        return self.password
+        """return the username"""
+        return User.__instance.username # updated the getter for username
 
+    def get_password(self):
+        """ return the password"""
+        return User.__instance.password # updated the getter for password
 
 # Objects
-user = User("senjack", "pawd")
+user_1 = User("Pauline", "pkt")
+print(user_1.get_username(), user_1.get_password())
+user_1.logout()
 
-print(user.get_username(), user.get_password())
+user_2 = User("Oliver", "pasd")
+print(user_2.get_username(), user_2.get_password())
+# user_2.logout()
 
-user.set_username("Florence")
-user.set_password("Password")
+user_3 = User("Izo", "pwd")
+print(user_3.get_username(), user_3.get_password())
+# user_3.logout()
 
-print(user.get_username(), user.get_password())
+user_3 = User("Demma", "123")
+print(user_3.get_username(), user_3.get_password())
+# user_3.logout()
