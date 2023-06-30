@@ -46,7 +46,7 @@ class User():
 # Objects
 user_1 = User("Pauline", "pkt")
 print(user_1.get_username(), user_1.get_password())
-user_1.logout()
+# user_1.logout()
 
 user_2 = User("Oliver", "pasd")
 print(user_2.get_username(), user_2.get_password())
