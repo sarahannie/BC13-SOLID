@@ -1,4 +1,13 @@
-"""Singleton Design Pattern"""
+""" 
+Demonstrate Singleton Design Pattern in Python
+Instantiate only 1 object of that class
+
+STEPS
+1. Create class instance variable
+2. Create private constructor-like method __init__ , __new__
+3. Static method that controls when the constructor is called
+
+"""
 
 # Class
 class User():
@@ -6,21 +15,20 @@ class User():
     __instance = None
 
     @staticmethod
-    def login(cred):
+    def login(username, password):
         """get the current instance of the class"""
         if User.__instance is None:
-            return User(cred.username, cred.password)
-            #return User(cred.__instance.username, cred.__instance.password)
+            return User(username, password)
         return User.__instance
 
     def __init__(self, username: str, password: str):
-        """ User class demonstrating Singleton Pattern"""
+        """ initialise/ set the instance itself"""
         if User.__instance is None:
+            User.__instance = self
             self.username = username
             self.password = password
-            User.__instance = self
-        #else:
-            #raise Exception("User logged in")
+        else:
+            raise Exception("User logged in") #prevent creation of multiple objects
     
     @staticmethod   
     def logout():
@@ -44,18 +52,19 @@ class User():
         return User.__instance.password # updated the getter for password
 
 # Objects
-user_1 = User("Pauline", "pkt")
+user_1 = User.login("Pauline", "pkt")
 print(user_1.get_username(), user_1.get_password())
-# user_1.logout()
+user_1.logout() # need to logout for other users to log in
 
-user_2 = User("Oliver", "pasd")
+user_2 = User.login("Oliver", "pasd")
+#user_2 = User("Oliver", "pasd") # calling User like this will return an error
 print(user_2.get_username(), user_2.get_password())
 # user_2.logout()
 
-user_3 = User("Izo", "pwd")
+user_3 = User.login("Izo", "pwd")
 print(user_3.get_username(), user_3.get_password())
 # user_3.logout()
 
-user_3 = User("Demma", "123")
+user_3 = User.login("Demma", "123")
 print(user_3.get_username(), user_3.get_password())
 # user_3.logout()
