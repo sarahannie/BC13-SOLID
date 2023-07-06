@@ -14,11 +14,28 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var User = /** @class */ (function () {
-    function User() {
-        // Fields
-        this.username = 'johndoe';
-        this.password = 'pswd';
+    //Methods
+    function User(username, password) {
+        this.username = username;
+        this.password = password;
     }
+    User.login = function (credentials) {
+        if (!User.user) {
+            return User.user = new User(credentials.username, credentials.password);
+        }
+        else {
+            return User.user;
+        }
+    };
+    User.logout = function () {
+        User.user = null;
+    };
+    User.prototype.getUsername = function () {
+        return this.username;
+    };
+    User.prototype.getPassword = function () {
+        return this.password;
+    };
     return User;
 }());
 var KeyBoard = /** @class */ (function () {
@@ -126,14 +143,14 @@ var Projector = /** @class */ (function () {
 // Computer Classes
 var Computer = /** @class */ (function () {
     // Methods
-    function Computer(brand, model, inputDevice, proccessorChip, storageDevice, outputDevice) {
-        this.user = new User();
+    function Computer(brand, model, inputDevice, proccessorChip, storageDevice, outputDevice, user) {
         this.brand = brand;
         this.model = model;
         this.inputDevice = inputDevice;
         this.proccessorChip = proccessorChip;
         this.storageDevice = storageDevice;
         this.outputDevice = outputDevice;
+        this.user = user;
     }
     Computer.prototype.input = function (data) {
         this.inputDevice.input(data);
@@ -166,6 +183,10 @@ var Computer = /** @class */ (function () {
     Computer.prototype.setOutputDevice = function (outputDevice) {
         this.outputDevice = outputDevice;
     };
+    //setter for user
+    Computer.prototype.setUser = function (user) {
+        this.user = user;
+    };
     //getters
     Computer.prototype.getBrand = function () {
         return this.brand;
@@ -184,6 +205,10 @@ var Computer = /** @class */ (function () {
     };
     Computer.prototype.getOutputDevice = function () {
         return this.outputDevice;
+    };
+    //getter for user
+    Computer.prototype.getUser = function () {
+        return this.user;
     };
     return Computer;
 }());
@@ -218,18 +243,23 @@ var Walltop = /** @class */ (function (_super) {
 // Objects
 var computer;
 // can be a Desktop Computer
-computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector());
+computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector(), User.login({ username: "Williamz", password: "Pwd" }));
 computer.setBrand("DELL");
 console.log(computer.getBrand());
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword());
+User.logout();
 // can be a Laptop Computer
-computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor());
+computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor(), User.login({ username: "James", password: "password" }));
 computer.process('cccgdnbhx');
 computer.setInputDevice(new Mouse());
 console.log(computer.getInputDevice());
 computer.input("");
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword());
+User.logout();
 // // can be a walltop Computer
-computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector());
+computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector(), User.login({ username: "Kevin", password: "password" }));
 computer.store('cccgdnbhx');
 computer.setStorageDevice(new SSD());
 console.log(computer.getStorageDevice());
 computer.store('x');
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword());

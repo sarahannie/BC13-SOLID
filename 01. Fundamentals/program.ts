@@ -1,10 +1,53 @@
 class User {
-    // Fields
-    username: string = 'johndoe'
-    password: string = 'pswd'
+
+    // Data
+    private username: string;
+    private password: string;
+
+    private static user: any;
+    //Methods
+    private constructor(username: string, password: string) {
+        this.username=username
+        this.password = password;     
+    }
+
+    public static login(credentials:any) {
+        if (!User.user) {
+            return User.user = new User(credentials.username, credentials.password);     
+        } else {
+           return  User.user;
+        }
+    }
+
+    public static logout() {
+        User.user = null;    
+    }
+
+    getUsername() {
+        return this.username; 
+    }
+    getPassword() {
+        return this.password; 
+    }
+    
 }
 
+<<<<<<< HEAD
 abstract class Computer {
+=======
+// let user1:User = User.login({username:"Juan", password:"pswd"})
+// console.log(user1.getUsername(), user1.getPassword());
+
+// User.logout();
+
+// let user2:User = User.login({username:"Emmanuel", password:"pswd"})
+// console.log(user2.getUsername(), user2.getPassword());
+
+// Input Devices
+interface InputDevice {
+    input(data: any): void
+}
+>>>>>>> e5dccd9ab8fb8ed1d068533f03abeda92f05649f
 
     // Fields
     private brand: string;
@@ -112,20 +155,22 @@ abstract class Computer {
     // Fields
     private brand: string;
     private model: string;
-    private user = new User();
+    private user: User;
+        //User.login({ username: "Williamz", password: "Password" });
     private inputDevice: InputDevice;
     private proccessorChip: ProccessorChip;
     private storageDevice: StorageDevice;
     private outputDevice: OutputDevice;
 
     // Methods
-    constructor(brand, model, inputDevice: InputDevice, proccessorChip: ProccessorChip, storageDevice: StorageDevice, outputDevice: OutputDevice) {
+    constructor(brand, model, inputDevice: InputDevice, proccessorChip: ProccessorChip, storageDevice: StorageDevice, outputDevice: OutputDevice, user:User) {
         this.brand = brand;
         this.model = model;
         this.inputDevice = inputDevice;
         this.proccessorChip = proccessorChip;
         this.storageDevice = storageDevice;
         this.outputDevice = outputDevice;
+        this.user = user;
     }
 
     input(data: any) {
@@ -164,6 +209,11 @@ abstract class Computer {
         this.outputDevice = outputDevice;
     }
 
+    //setter for user
+    setUser(user: User) {
+        this.user = user;
+    }
+
     //getters
     getBrand() {
         return this.brand;
@@ -182,6 +232,11 @@ abstract class Computer {
     }
     getOutputDevice() {
         return this.outputDevice;
+    }
+
+    //getter for user
+    getUser() {
+        return this.user;
     }
 
 }
@@ -214,25 +269,28 @@ class Walltop extends Computer {
 // Objects
 let computer: Computer;
 // can be a Desktop Computer
-computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector());
+computer = new Desktop("HP", "XP-X2", new Mouse(), new Intel(), new InternalMemory(), new Projector(), User.login({username:"Williamz",password:"Pwd"}));
 computer.setBrand("DELL");
 console.log(computer.getBrand());
-
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword())
+User.logout();
 
 // can be a Laptop Computer
-computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor());
+computer = new Laptop("HP", "XP-X2", new KeyBoard(), new AMD(), new SSD(), new Monitor(), User.login({username:"James",password:"password"}));
 computer.process('cccgdnbhx');
 computer.setInputDevice(new Mouse());
 console.log(computer.getInputDevice());
 computer.input("");
-
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword())
+User.logout();
 
 // // can be a walltop Computer
-computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector());
+computer = new Walltop("HP", "XP-X2", new KeyBoard(), new Nvidia, new HDD(), new Projector(), User.login({username:"Kevin",password:"password"}));
 computer.store('cccgdnbhx');
 computer.setStorageDevice(new SSD());
 console.log(computer.getStorageDevice());
 computer.store('x');
+console.log(computer.getUser().getUsername(), computer.getUser().getPassword())
 
 
 
